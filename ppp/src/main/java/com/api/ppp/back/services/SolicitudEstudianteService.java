@@ -11,4 +11,6 @@ public interface SolicitudEstudianteService extends BaseService<SolicitudEstudia
 
     public List<SolicitudEstudiante> solicitudesAprovadasxConvocatoria(Convocatoria convocatoria);
 
+    public List<SolicitudEstudiante> solicitudesPendientesxConvocatoria(Convocatoria convocatoria);
+
 }

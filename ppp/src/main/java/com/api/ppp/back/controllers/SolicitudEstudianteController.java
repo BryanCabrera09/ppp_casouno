@@ -101,6 +101,12 @@ public class SolicitudEstudianteController {
         return ResponseEntity.ok().body(service.solicitudesAprovadasxConvocatoria(convocaroriaService.findById(id).orElse(null)));
     }
 
+    @GetMapping("/listarpendientesxconvocatoria")
+    public ResponseEntity<?> listarsolicitadas(@RequestParam("id") Integer id) {
+        //AQUI LA SUBIDA
+        return ResponseEntity.ok().body(service.solicitudesPendientesxConvocatoria(convocaroriaService.findById(id).orElse(null)));
+    }
+
     @PostMapping("/guardarpdf")
     public ResponseEntity<String> guardarDocumento(@RequestParam("archivo") MultipartFile archivo, @RequestParam("id")Integer id) {
         try {

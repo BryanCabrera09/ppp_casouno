@@ -20,7 +20,7 @@ public class Estudiante {
     private String periodo;
 
     @Column(name = "est_ciclo")
-    private String ciclo;
+    private Integer ciclo;
 
     @Column(name = "est_horas_cumplidas")
     private Integer horasCumplidas;
