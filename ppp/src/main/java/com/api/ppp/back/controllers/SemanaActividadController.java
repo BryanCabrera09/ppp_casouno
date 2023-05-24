@@ -8,6 +8,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -67,7 +70,9 @@ public class SemanaActividadController {
     // to find a list of SemanaActividad by an Estudiante ID
     @GetMapping("/buscar/estudiante/{id}")
     public ResponseEntity<?> buscarSActividadEstudianteID(@PathVariable("id") Integer id) {
-        return ResponseEntity.ok().body(service.listarSActividadEstudianteId(id));
+        List<SemanaActividad> listaActividades = service.listarSActividadEstudianteId(id);
+        Collections.sort(listaActividades, Comparator.comparing(SemanaActividad::getDia));
+        return ResponseEntity.ok().body(listaActividades);
     }
 
 }
